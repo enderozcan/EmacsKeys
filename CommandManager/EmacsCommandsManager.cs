@@ -136,6 +136,11 @@ namespace Microsoft.VisualStudio.Editor.EmacsEmulation
                                     repeatCount = Math.Abs(GetUniversalArgumentOrDefault(1));
                             }
 
+                            if (metadata.IsYankCommand)
+                            {
+                                view.FlushKillSring(this.ClipboardRing);
+                            }
+
                             for (; repeatCount > 0; repeatCount--)
                             {
                                 if (shouldExecuteInverse)

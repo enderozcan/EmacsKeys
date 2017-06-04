@@ -23,7 +23,7 @@ namespace Microsoft.VisualStudio.Editor.EmacsEmulation.Commands
     /// Keys: Ctrl+Y
     /// </summary>
     /// 
-    [EmacsCommand(VSConstants.VSStd97CmdID.Paste, UndoName="Paste")]
+    [EmacsCommand(VSConstants.VSStd97CmdID.Paste, IsYankCommand = true, UndoName = "Paste")]
     internal class PasteCommand : EmacsCommand
     {
         internal override void Execute(EmacsCommandContext context)

@@ -9,7 +9,7 @@ namespace Microsoft.VisualStudio.Editor.EmacsEmulation.Commands
     /// 
     /// Keys: Alt+Y
     /// </summary>
-    [EmacsCommand(EmacsCommandID.PasteRotate, UndoName = "Paste")]
+    [EmacsCommand(EmacsCommandID.PasteRotate, IsYankCommand = true, UndoName = "Paste")]
     internal class PasteRotateCommand : EmacsCommand
     {
         internal override void Execute(EmacsCommandContext context)

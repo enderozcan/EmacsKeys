@@ -32,9 +32,14 @@ namespace Microsoft.VisualStudio.Editor.EmacsEmulation.Commands
         bool CanBeRepeated { get; }
 
         /// <summary>
-        /// Gets true if the deleted text of the command should be automatically copied to te clipboard
+        /// Gets true if the deleted text of the command should be automatically copied to the clipboard
         /// </summary>
         bool IsKillCommand { get; }
+
+        /// <summary>
+        /// Gets true If the deleted text buffer should be flushed to the clipboard
+        /// </summary>
+        bool IsYankCommand { get; }
 
         /// <summary>
         /// Gets name to be displayed in the Undo list. If no name is present, Undo is not available for this command.

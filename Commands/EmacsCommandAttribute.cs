@@ -43,7 +43,12 @@ namespace Microsoft.VisualStudio.Editor.EmacsEmulation.Commands
         /// Gets or sets whether the command is kill command. Kill commands contribute to the kill
         /// word list which stores all deleted text in the clipboard.
         /// </summary>
-        public bool IsKillCommand { get; set;  }
+        public bool IsKillCommand { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether the command is yank command.
+        /// </summay>
+        public bool IsYankCommand { get; set; }
 
         /// <summary>
         /// Gets the ID of the command

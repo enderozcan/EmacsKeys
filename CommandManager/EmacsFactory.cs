@@ -35,6 +35,7 @@ namespace Microsoft.VisualStudio.Editor.EmacsEmulation
         {
             var view = this.EditorAdaptersFactory.GetWpfTextView(textViewAdapter);
             view.Options.OptionChanged += OnOptionsChanged;
+            view.LostAggregateFocus += OnLostAggregateFocus;
 
             IOleCommandTarget nextCommandTarget;
 
@@ -65,6 +66,13 @@ namespace Microsoft.VisualStudio.Editor.EmacsEmulation
         void OnOptionsChanged(object sender, EditorOptionChangedEventArgs e)
         {
             this.Manager.CheckEmacsVskSelected();
+        }
+
+        void OnLostAggregateFocus(object sender, EventArgs e)
+        {
+            var view = sender as ITextView;
+            if (view == null) return;
+            view.FlushKillSring(this.Manager.ClipboardRing);
         }
 
         public IMouseProcessor GetAssociatedProcessor(IWpfTextView wpfTextView)
